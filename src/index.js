@@ -1,17 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {BrowserRouter} from 'react-router-dom'
+/* 组件 */
+import SiderDemo from './App';
+import Root from "./router/router";
+import axios from "axios";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+axios.defaults.baseURL = 'http://127.0.0.1:8080'       //测试环境后端 -pre/.pre  200
+// axios.defaults.baseURL = 'http://192.168.189.192:8080'       //测试环境后端 -pre/.pre  200
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+axios.defaults.withCredentials = true;
+axios.defaults.timeout = 180000;
+const Web = () => {
+            return (
+
+            <BrowserRouter>
+                <div>
+                <SiderDemo className="management" content={
+                    Root()
+                }/>
+                </div>
+            </BrowserRouter>
+        )
+}
+
+
+ReactDOM.render(<Web />, document.getElementById('root'))
