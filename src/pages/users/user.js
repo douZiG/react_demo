@@ -74,11 +74,6 @@ function User() {
             dataIndex: 'mail',
         },
         {
-            title: 'Status',
-            key: 'status',
-            dataIndex: 'status',
-        },
-        {
             title: 'Action',
             key: 'action',
             render: record => {
