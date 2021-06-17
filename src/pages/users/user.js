@@ -1,10 +1,6 @@
-// import { Table, Tag, Space } from 'antd';
-// import * as ReactDOM from "react-dom";
-// import {render} from "@testing-library/react";
+
 import React, {useState, useEffect} from 'react';
-// import * as ReactDOM from "react-dom";
-import {Space, Table, message, Button, Divider, Modal, Form, Input, InputNumber, Alert} from "antd";
-// import {Table} from "antd";
+import {Space, Table, message, Button, Divider, Modal, Form, Input, InputNumber} from "antd";
 
 import * as PropTypes from "prop-types";
 import axios from "axios";
@@ -135,6 +131,26 @@ function User() {
         if (method === "add") {
             const values = form.getFieldsValue()
             console.log(values)
+            if (values.name === undefined) {
+                message.error("name不能为空")
+                return
+            }
+            if (values.mail === undefined) {
+                message.error("mail不能为空")
+                return
+            }
+            if (values.age === undefined) {
+                message.error("age不能为空")
+                return
+            }
+            if (values.phone === undefined) {
+                message.error("phone不能为空")
+                return
+            }
+            if (values.role === undefined) {
+                message.error("role不能为空")
+                return
+            }
             AddUser(values, (res) => {
                 console.log("新建用户返回参数", res)
                 if (res.status !== 200) {
@@ -314,6 +330,7 @@ function User() {
                         id='name'
                         name='name'
                         label="Name"
+                        required = "true"
                         rules={[
                             {
                                 required: true,

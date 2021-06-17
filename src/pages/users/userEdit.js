@@ -1,7 +1,7 @@
-import {Divider, Form, Input, InputNumber, message, Modal} from "antd";
-import React, {useEffect, useState} from "react";
+import {message} from "antd";
+// import React, {useEffect, useState} from "react";
 // import AddUser from "./userAdd";
-import {layout, validateMessages} from "./user";
+// import {layout, validateMessages} from "./user";
 import axios from "axios";
 
 function EditUser(requestData, callback) {
